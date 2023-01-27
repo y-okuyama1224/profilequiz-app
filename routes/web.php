@@ -37,16 +37,19 @@ Route::get('/users/logout', function () {
 Route::get('/users/edit', function () {
     return view('/users/edit');
 });
-//
+// ユーザー（メンバー）クイズページ
 Route::get('/users/quiz', function () {
     return view('/users/quiz');
 });
+// クライアントプロフィールページ
 Route::get('/clients/show', function () {
     return view('/clients/show');
 });
+// クライアントプロフィール編集ページ
 Route::get('/cliets/edit', function () {
     return view('/cients/edit');
 });
+// クライアントクイズページ
 Route::get('/clients/quiz', function () {
     return view('/clients/quiz');
 });

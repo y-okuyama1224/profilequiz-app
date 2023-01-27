@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>ゲームレビュー</title>
+  <title>プロフィールクイズ</title>
   <link rel="stylesheet" type="text/css" href=".\css\base.css">
   <script src="https://code.jquery.com/jquery-1.12.4.min.js" defer></script>
   @yield('js')
