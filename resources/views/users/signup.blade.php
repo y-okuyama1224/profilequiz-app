@@ -13,6 +13,7 @@
         <div class="contents">
           <div class="login-content">
             <form action="{{url('/users/register')}}">
+            @csrf
                 <div>
                     <p>苗字</p><input type="text" name="family_name" placehplder="山田"></input>
                     <p>名前</p><input type="text" name="name" placehplder="太郎"></input>
