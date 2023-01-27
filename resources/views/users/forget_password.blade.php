@@ -17,16 +17,9 @@
                 <p>メールアドレス</p>
                 <input type="text" name="email">
               </div>
-              <div>
-                <p>パスワード</p>
-                <input type="password" name="password">
-                <p>グループ名</p>
-                <input type="text" name="group_name">
-              </div>
-              <input type="submit" value="ログイン">
+              <p><a href="{{url('/users/login')}}">戻る</a></p>
+              <input type="submit" value="送信">
             </form>
-            <p><a href="{{url('/users/forget_password)}}">パスワードをお忘れですか？</a></p>
-            <p>新規登録の方は<a href="{{url('/users/signup')}}">こちら</a></p>
           </div>
         </div>
       </div>
