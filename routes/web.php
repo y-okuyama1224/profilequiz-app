@@ -13,13 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// トップページ
+// トップページ(ログインページ)
 Route::get('/', function () {
-    return view('toppage');
+    return view('/users/login');
 });
 // トップページ
 Route::get('/toppage', function () {
     return view('toppage');
+});
+// ユーザー（クライアント）削除ページ
+Route::get('/delete', function () {
+    return view('delete');
 });
 // ログインページ
 Route::get('/users/login', function () {
@@ -29,27 +33,40 @@ Route::get('/users/login', function () {
 Route::get('/users/signin', function () {
     return view('/users/signin');
 });
+// サインアップページ
+Route::get('/users/signup', function () {
+    return view('/users/signup');
+});
+// 登録完了ページ
+Route::get('/users/register', function () {
+    return view('/users/register');
+});
 // ログアウトページ
 Route::get('/users/logout', function () {
     return view('/users/logout');
 });
+// マイページ
+Route::get('/users/profile', function () {
+    return view('/users/profile');
+});
 // プロフィール編集ページ
-Route::get('/users/edit', function () {
-    return view('/users/edit');
+Route::get('/users/profile_edit', function () {
+    return view('/users/profile_edit');
 });
-// ユーザー（メンバー）クイズページ
-Route::get('/users/quiz', function () {
-    return view('/users/quiz');
-});
+
 // クライアントプロフィールページ
-Route::get('/clients/show', function () {
-    return view('/clients/show');
+Route::get('/clients/profile', function () {
+    return view('/clients/client_profile');
 });
 // クライアントプロフィール編集ページ
-Route::get('/cliets/edit', function () {
-    return view('/cients/edit');
+Route::get('/cliets/client_profile_edit', function () {
+    return view('/cients/client_profile_edit');
 });
-// クライアントクイズページ
-Route::get('/clients/quiz', function () {
-    return view('/clients/quiz');
+// クイズページ
+Route::get('/profile_quiz', function () {
+    return view('/profile_quiz');
+});
+// 回答ページ
+Route::get('/answer', function () {
+    return view('/answer');
 });

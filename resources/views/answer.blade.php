@@ -11,11 +11,10 @@
 
       <div class="wrapper">
         <div class="contents">
-          <div class="login-content">
-            <p>ログアウトしました</p>
-          </div>
+            <p>正解！</p>
+            <p><a href="{{url('/users/profile')}}"></a>プロフィールに戻る</p>
+            <p><a href="{{url('/clients/profile')}}"></a>クライアントプロフィールに戻る</p>       
         </div>
-        <p>ログインページへ<a href="{{url('/users/login')}}">戻る</a></p>
       </div>
 
     </main>

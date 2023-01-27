@@ -23,7 +23,7 @@
               </div>
               <input type="submit" value="ログイン">
             </form>
-            <p>新規登録の方は<a href="{{url('/signin')}}">こちら</a></p>
+            <p>新規登録の方は<a href="{{url('/users/signup')}}">こちら</a></p>
           </div>
         </div>
       </div>

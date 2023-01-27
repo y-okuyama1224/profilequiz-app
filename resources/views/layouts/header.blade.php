@@ -10,7 +10,7 @@
       </div>
       <div class="header-login">
         <a href="{{url('/users/profile')}}"><p>マイページ</p></a>
-        <a href="{{url('/users/signin')}}"><p>新規登録</p></a>
+        <a href="{{url('/users/signup')}}"><p>新規登録</p></a>
         <a href="{{url('/users/login')}}"><p>ログイン</p></a>
         <a href="{{url('/users/logout')}}"><p>ログアウト</p></a>
       </div>

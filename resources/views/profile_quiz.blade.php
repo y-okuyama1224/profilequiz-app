@@ -11,11 +11,9 @@
 
       <div class="wrapper">
         <div class="contents">
-          <div class="login-content">
-            <p>ログアウトしました</p>
-          </div>
+            <p>プロフィール</p>
+            <p><a href="{{url('/answer')}}">回答する</a></p>       
         </div>
-        <p>ログインページへ<a href="{{url('/users/login')}}">戻る</a></p>
       </div>
 
     </main>
