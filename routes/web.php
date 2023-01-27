@@ -29,16 +29,20 @@ Route::get('/delete', function () {
 Route::get('/users/login', function () {
     return view('/users/login');
 });
-// サインインページ
-Route::get('/users/signin', function () {
-    return view('/users/signin');
+// ログインページ→post→マイページ
+Route::post('/users/profile', function () {
+    return view('/users/profile');
+});
+// パスワード再設定ページ
+Route::get('/users/forget_password', function () {
+    return view('/users/forget_password');
 });
 // サインアップページ
 Route::get('/users/signup', function () {
     return view('/users/signup');
 });
-// 登録完了ページ
-Route::get('/users/register', function () {
+// サインインページ→post→登録完了ページ
+Route::post('/users/register', function () {
     return view('/users/register');
 });
 // ログアウトページ
@@ -53,7 +57,10 @@ Route::get('/users/profile', function () {
 Route::get('/users/profile_edit', function () {
     return view('/users/profile_edit');
 });
-
+// プロフィール編集完了ページ
+Route::post('/update', function () {
+    return view('/update');
+});
 // クライアントプロフィールページ
 Route::get('/clients/profile', function () {
     return view('/clients/client_profile');
@@ -67,6 +74,6 @@ Route::get('/profile_quiz', function () {
     return view('/profile_quiz');
 });
 // 回答ページ
-Route::get('/answer', function () {
+Route::post('/answer', function () {
     return view('/answer');
 });
