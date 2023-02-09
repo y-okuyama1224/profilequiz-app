@@ -20,6 +20,7 @@
           <div class="login-content">
             <form class="login-form" action="{{url('/users/profile')}}" method="post">
             @csrf
+            <!-- csrf = クロス・サイト・リクエスト・フォージェリ(CSRF)からアプリケーションを簡単に守ることができるもの -->
               <div class=form-contents>
 
                 <div class=form-content>
