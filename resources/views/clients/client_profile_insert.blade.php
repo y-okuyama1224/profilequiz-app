@@ -1,6 +1,5 @@
 @extends('layouts.base')
 @section('js')
-<script src="../js/page.js"></script>
 <link rel="stylesheet" type="text/css" href="..\css\base.css">
 @endsection
 
@@ -8,23 +7,21 @@
 @section('main')
   <body>
     <div class=page>
-      <div class="bgextend bgLRextend"><h3 class="bgappear">プロフィール編集</h3></div>
+      <div class="bgextend bgLRextend"><h3 class="bgappear">クライアント情報登録</h3></div>
     </div>
     <main>
 
       <div class="wrapper">
         <div class="contents">
         @csrf
-        <form class="login-form" action="{{url('/update')}}">
+        
+        <form class=login-form action="{{url('/clients/client_profile_register')}}">
             <div class="form-contents">
-            <h4>プロフィール編集</h4>
-
+              <h4>クライアント情報登録</h4>
+    
                 <div class="form-content">
                     <div class="form-content-head">
-                      <p><img src="{{asset('storage/nami.png')}}"></p>
-                    </div>
-                    <div class="form-content-head">
-                      <p>プロフィール画像を変える</p>
+                      <p>プロフィール画像をアップロードする</p>
                     </div>
                     <div class="form-content-body">  
                       <input type="file" name="profile-image"  id="upfile">
@@ -32,39 +29,31 @@
                     <img id="upimage">
                 </div>
 
-                <div class="form-content">
-                    <div class="form-content-head">
+                <div class="form-content-content">
+                    <div class="profile-head">
                       <p>【氏名】</p>
                     </div>
                     <div class="form-content-body">
-                      <p>苗字 名前</p>
+                      <input type="text" name="family-name" placeholder="鈴木" required></input>
+                      <input type="text" name="name" placeholder="次郎" required></input>
                     </div>
                 </div>
-                
-                <div class="form-content">
-                    <div class="form-content-head">
-                      <p>【グループ名】</p>
-                    </div>
-                    <div class="form-content-body">
-                      <p>〇〇会社</p>
-                    </div>
-                 </div>
                 
                 <div class="form-content">
                     <div class="form-content-head">
                       <p>【所属】</p>
                     </div>
                     <div class="form-content-body">
-                      <input type="text" name="departure"></input>
+                      <input type="text" name=company placeholder="△△会社営業部"></input>
                     </div>
-                </div>
+                 </div>
                 
                 <div class="form-content">
                     <div class="form-content-head">
                       <p>【誕生日】</p>
                     </div>
                     <div class="form-content-body">
-                      <input type="int" name="birthday"></input>
+                      <input type="int" name="birthday" placeholder="YYYYMMDD"></input>
                     </div>
                 </div>
                 
@@ -73,7 +62,7 @@
                       <p>【趣味】</p>
                     </div>
                     <div class="form-content-body">
-                      <input type="text" name="hobby"></input>
+                      <input type="text" name="hobby" placeholder="ラーメン屋さんめぐり"></input>
                     </div>
                 </div>
               
@@ -82,22 +71,27 @@
                       <p>【出身】</p>
                     </div>
                     <div class="form-content-body">
-                      <input type="text" name="comefrom"></input>
+                      <input type="text" name="comefrom" placeholder="東京"></input>
                     </div>
                 </div>
 
-                <p class=form-content id=submit>
-                    <button type="submit" name="button" id="submit-btn" onclick="validation()">編集する</button>
-                </p>
+                <div class=btns>
+                    <p class=form-content id=submit>
+                        <button type="submit" name="button" id="submit-btn" onclick="validation()">登録</button>
+                    </p>
+                    <p class=form-content id=submit>
+                        <button class="long-btn" type="button" onclick="history.back()" id="return-btn">戻る</button>
+                    </p>
+                </div>
 
-              </div>
-              </div>
-            </form>
-        </div>  
+            </div>
+            </form>   
+        </div>
       </div>
     </main>
   </body>
 </html>
 <script src="{{ asset('js/preview.js') }}"></script>
+
 @endsection
 <!--ここまでがtoppageの範囲 -->

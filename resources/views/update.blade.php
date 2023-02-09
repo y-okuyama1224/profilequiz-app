@@ -7,6 +7,9 @@
 <!--ここからtoppageの範囲 -->
 @section('main')
   <body>
+  <div class=page>
+      <div class="bgextend bgLRextend"><h3 class="bgappear">更新完了</h3></div>
+    </div>
     <main>
 
       <div class="wrapper">

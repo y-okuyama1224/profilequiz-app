@@ -7,13 +7,23 @@
 <!--ここからtoppageの範囲 -->
 @section('main')
   <body>
+  <div class=page>
+      <div class="bgextend bgLRextend"><h3 class="bgappear">回答</h3></div>
+    </div>
     <main>
 
-      <div class="wrapper">
+    <div class="wrapper">
         <div class="contents">
-            <p>正解！</p>
-            <p><a href="{{url('/users/profile')}}"></a>プロフィールに戻る</p>
-            <p><a href="{{url('/clients/profile')}}"></a>クライアントプロフィールに戻る</p>       
+          
+          <div class=logout-contents>
+            <div class="form-content">
+              <h4>正解！</h4>
+            </div>          
+          </div>
+          <div class=url>
+              <p class=url-path><a href="{{url('/users/profile')}}">プロフィールに戻る</a></p>
+              <p class=url-path><a href="{{url('/clients/profile')}}">クライアントページに戻る</a></p>             
+          </div>
         </div>
       </div>
 

@@ -1,24 +1,52 @@
 @extends('layouts.base')
 @section('js')
-<script src="../js/page.js"></script>
 <link rel="stylesheet" type="text/css" href="..\css\base.css">
+<script src="{{ asset('js/fadein.js') }}"></script>
+
 @endsection
 
 <!--ここからtoppageの範囲 -->
 @section('main')
   <body>
+    <div class=page>
+      <div class="bgextend bgLRextend"><h3 class="bgappear">トップページ</h3></div>
+    </div>
     <main>
 
       <div class="wrapper">
         <div class="contents">
-            <div class=client>
-                <p><a href="{{url('/clients/profile')}}">Aさん</a></p>
-            </div>
-            <div class=user>
-                <p><a href="{{url('/users/profile')}}">Bさん</a></p>
+
+            <div class=persons>
+
+                <h4>クライアント</h4>
+                <ul class=person-contents>
+                    <li class=person-content>
+                      <p><a href="{{url('/clients/profile')}}"><img src="{{asset('storage/lufy.png')}}">Aさんのプロフィール</a></p>
+                    </li>
+                    <li class=person-content>
+                      <p><a href="{{url('/clients/profile')}}"><img src="{{asset('storage/zoro.png')}}">Bさんのプロフィール</a></p>
+                    </li>
+                </ul>
+
+                <h4>メンバー</h4>
+                <ul class=person-contents>
+                    <li class=person-content>
+                        <p><a href="{{url('/clients/profile')}}"><img src="{{asset('storage/nami.png')}}">Cさんのプロフィール</a></p>
+                    </li>
+                    <li class=person-content>
+                        <p><a href="{{url('/clients/profile')}}"><img src="{{asset('storage/usop.png')}}">Bさんのプロフィール</a></p>
+                    </li>
+                </ul>
+                
             </div>
         </div>
-        <p>マイページは<a href="{{url('/users/profile')}}">こちら</a></p>
+
+        <div class=url>
+            <p class=url-path><a href="{{url('/users/profile')}}">マイページへ</a></p>
+            <p class=url-path><a href="{{url('/clients/client_profile_insert')}}">クライアントを登録する</a></p>
+        </div>
+
+        </div>
       </div>
 
     </main>

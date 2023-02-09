@@ -16,12 +16,12 @@
         <div class="contents">
             <div class=logout-contents>
               <div class="form-content">
-                <h4>登録完了しました</h4>
+                <h4>クライアントプロフィールの登録が完了しました</h4>
               </div>
+              <div class=url>
+                <p class=url-path><a href="{{url('/clients/client_profile')}}">クライアント様ページへ</a></p>
+              </div>            
             </div>
-            <div class=url>
-                <p class=url-path><a href="{{url('/users/login')}}">ログインページへ</a></p>
-              </div>   
         </div>
       </div>
 

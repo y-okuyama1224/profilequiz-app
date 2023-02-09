@@ -7,15 +7,24 @@
 <!--ここからtoppageの範囲 -->
 @section('main')
   <body>
+    <div class=page>
+      <div class="bgextend bgLRextend"><h3 class="bgappear">ログアウト</h3></div>
+    </div>
     <main>
 
       <div class="wrapper">
         <div class="contents">
-          <div class="login-content">
-            <p>ログアウトしました</p>
+
+          <div class=logout-contents>
+            <div class="form-content">
+              <h4>ログアウトしました</h4>
+            </div>
           </div>
+
+          <div class=url>
+              <p class=url-path><a href="{{url('/users/login')}}">ログインページに戻る</a></p>
+            </div>        
         </div>
-        <p>ログインページへ<a href="{{url('/users/login')}}">戻る</a></p>
       </div>
 
     </main>
