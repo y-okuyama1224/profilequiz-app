@@ -24,7 +24,7 @@ class UserController extends Controller
       return route('login');
     }
     
-    public function index() {
+    public function show() {
         return view('users/profile');   
     }
 
@@ -61,8 +61,14 @@ class UserController extends Controller
         return redirect('logout')->withHeaders(['Cache-Control' => 'no-store']);
     }
 
-    public function get_group() {
-        return view('users/create_group');
+    public function create_group() {
+        $groups = Group::all();
+        return view('users.create_group', ['groups' => $groups]);
+    }
+
+    public function index(){
+        $users = User::all();
+        return view('users.index', compact('users'));
     }
 
 }

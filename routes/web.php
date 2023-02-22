@@ -25,17 +25,19 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    Route::get('users/profile',[App\Http\Controllers\UserController::class,'index'])->name('users_index');
-    Route::get('users/profile_edit',[App\Http\Controllers\UserController::class,'get_edit'])->name('get_edit');
-    Route::get('users/profile_update',[App\Http\Controllers\UserController::class,'get_update'])->name('get_update');
-    Route::post('users/profile_update',[App\Http\Controllers\UserController::class,'update'])->name('update');
+    Route::get('/users/profile',[App\Http\Controllers\UserController::class,''])->name('user_show');
+    Route::get('/users/profile_edit',[App\Http\Controllers\UserController::class,'get_edit'])->name('get_edit');
+    Route::get('/users/profile_update',[App\Http\Controllers\UserController::class,'get_update'])->name('get_update');
+    Route::post('/users/profile_update',[App\Http\Controllers\UserController::class,'update'])->name('update');
 
-    Route::get('users/create_group',[App\Http\Controllers\UserController::class,'get_group'])->name('get_group');
+    Route::get('/users/create_group', [App\Http\Controllers\GroupController::class, 'create'])->name('create_group');
+
 
 
 });
 
-
+Route::get('/users/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+Route::post('/users/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 
 
@@ -44,9 +46,9 @@ Route::group(['middleware' => 'auth'], function () {
 //     return view('/login');
 // });
 // トップページ
-// Route::get('/toppage', function () {
-//     return view('toppage');
-// });
+Route::get('/toppage', function () {
+    return view('toppage');
+});
 // 
 // // ユーザー（クライアント）削除ページ
 // Route::get('/delete', function () {

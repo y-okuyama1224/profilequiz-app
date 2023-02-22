@@ -116,7 +116,7 @@
           <div class=url>
               <p class=url-path><a href="{{url('/toppage')}}">トップページへ</a></p>
               @if (Auth::user()->role == 0 and Auth::user()->group_id == null)
-                <p class=url-path><a href="{{route('get_group')}}">グループを登録する</a></p>
+                <p class=url-path><a href="{{url('/users/create_group')}}">グループを登録する</a></p>
               @endif              
               <p class=url-path><a href="{{url('/users/profile_edit')}}">プロフィール編集する</a></p>   
               <p class=url-path><a href="{{url('/profile_quiz')}}">プロフィールクイズをする</a></p>       

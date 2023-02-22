@@ -31,10 +31,13 @@
                 <h4>メンバー</h4>
                 <ul class=person-contents>
                     <li class=person-content>
-                        <p><a href="{{url('/clients/profile')}}"><img src="{{asset('storage/nami.png')}}">Cさんのプロフィール</a></p>
-                    </li>
-                    <li class=person-content>
-                        <p><a href="{{url('/clients/profile')}}"><img src="{{asset('storage/usop.png')}}">Bさんのプロフィール</a></p>
+                      @foreach($users as $user)
+                        <p>
+                          <a href="{{$user}}/profile"><img src="{{$user->profile_image}}">
+                             {{$user->family_name}}{{$user->name}}さんのプロフィール
+                          </a>
+                        </p>
+                      @endforeach
                     </li>
                 </ul>
                 
@@ -42,7 +45,7 @@
         </div>
 
         <div class=url>
-            <p class=url-path><a href="{{url('/users/profile')}}">マイページへ</a></p>
+            <p class=url-path><a href="{{route('user_show)}}">マイページへ</a></p>
             <p class=url-path><a href="{{url('/clients/client_profile_insert')}}">クライアントを登録する</a></p>
         </div>
 

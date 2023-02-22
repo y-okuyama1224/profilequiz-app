@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class=url>
-            <p class=url-path><a href="{{url('/users/profile')}}">マイページへ</a></p>
+            <p class=url-path><a href="{{route('user_show')}}">マイページへ</a></p>
         </div>
     </div>
 </div>
