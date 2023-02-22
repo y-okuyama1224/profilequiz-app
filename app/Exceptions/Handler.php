@@ -47,4 +47,25 @@ class Handler extends ExceptionHandler
             //
         });
     }
+        /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $exception
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @throws \Throwable
+     */
+    public function render($request, Throwable $exception)
+    {
+        // TokenMismatchException 例外発生時
+        if($exception instanceof \Illuminate\Session\TokenMismatchException) {
+            // ログアウトリクエスト時は、強制的にログアウト
+            if($request->is('logout')) {
+                Auth::logout();
+            }
+        }
+ 
+        return parent::render($request, $exception);
+    }
 }

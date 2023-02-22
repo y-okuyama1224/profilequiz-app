@@ -36,10 +36,439 @@ body {
 	box-sizing: border-box;
 }
 
+/* ヘッダー */
 header {
-  background-color:lightgreen;
+	background-color:rgb(255, 255, 255);/*背景色*/
+  }
+.header-wrapper{
+	width:100%;
+  }  
+/* ヘッダーウェーブ */
+.wave {
+	position:relative;
+	height: 70px;
+}
+canvas{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%;
+}  
+
+/* ハンバーガーメニュー */
+#g-nav{
+    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+    position:fixed;
+    z-index: 999;
+    /*ナビのスタート位置と形状*/
+    top:0;
+    right: -120%;
+    width:20%;
+    height: 100vh;/*ナビの高さ*/
+    background:rgba(0,0,0,0.7);
+    /*動き*/
+    transition: all 0.6s;
 }
 
+/*アクティブクラスがついたら位置を0に*/
+#g-nav.panelactive{
+    right: 0;
+}
+
+/*ナビゲーションの縦スクロール*/
+#g-nav.panelactive #g-nav-list{
+    /*ナビの数が増えた場合縦スクロール*/
+    position: fixed;
+    z-index: 999; 
+    width: 20%;
+    height: 100vh;/*表示する高さ*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+    /*ナビゲーション天地中央揃え*/
+    position: absolute;
+    z-index: 999;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+/*リストのレイアウト設定*/
+
+#g-nav li{
+  list-style: none;
+  text-align: center;
+}
+
+#g-nav li a{
+  color: white;
+  text-decoration: none;
+  padding:10px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+}
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn{
+  position:fixed;
+  z-index: 9999;/*ボタンを最前面に*/
+  top:10px;
+  right: 10px;
+  cursor: pointer;
+  width: 50px;
+  height:50px;
+}
+  
+/*×に変化*/  
+.openbtn span{
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: black;
+  width: 45%;
+  }
+
+.openbtn span:nth-of-type(1) {
+  top:15px; 
+}
+
+.openbtn span:nth-of-type(2) {
+  top:23px;
+}
+
+.openbtn span:nth-of-type(3) {
+  top:31px;
+}
+
+.openbtn.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3){
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+
+.gnavi li a{
+    /*背景色の基点とするためrelativeを指定*/
+  position: relative;
+}
+
+.gnavi li a::after {
+  content: '';
+    /*絶対配置で線の位置を決める*/
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+    /*背景の形状*/
+  width: 0;
+  height:100%;
+  background: #4169E1;
+    /*アニメーションの指定*/
+  transition:all .5s;
+  opacity: 0;/*はじめは透過0*/
+}
+
+/*現在地とhoverの設定*/
+.gnavi li.current a::after,
+.gnavi li a:hover::after {
+    /*背景の形状*/
+  width: 100%;/*横幅を伸ばす*/
+  opacity: 1;/*不透明に*/
+}
+
+.gnavi li.current a,
+.gnavi li a:hover{
+    color: #fff;
+}
+  
+/* フッター */
 footer {
   background-color:lightgray;
+}
+
+/* 共通 */
+body {
+	width: 100%;
+}
+main {
+	width: 95%;
+	margin: auto;
+}
+.wrapper {
+	margin: 5% auto	;
+
+}
+
+
+/*========= particles js を描画するエリア設定 ===============*/
+
+  #particles-js{ 
+	position:fixed;/*描画固定*/
+	z-index:-1;/*描画を一番下に*/
+	width: 100%;
+	height: 100%;
+  }
+  
+  #wrapper{
+	position: relative;/*描画を#particles-jsよりも上にするためposition:relative;を指定*/
+	z-index: 2;/*z-indexの数字を大きくすることで描画を#particles-jsよりも上に*/
+	width:100%;
+	height: 100%;
+	background-color:rgb(56, 33, 156);/*背景色*/
+  }
+
+
+h1{
+	font-size: 4rem;
+	font-weight: bold;
+	position: relative;
+	z-index: 999;
+}
+
+h2{
+	font-size: 1.75rem;
+	font-weight: bold;
+}
+
+h3{
+	font-size: 2rem;
+	font-weight: bold;
+	color:white;
+}
+
+h4{
+	font-weight: bold;
+	text-align: center;
+}
+
+/*背景色が伸びて出現 共通*/
+.bgextend{
+	animation-name:bgextendAnimeBase;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+	position: relative;
+	overflow: hidden;/*　はみ出た色要素を隠す　*/
+	opacity:0;
+  }
+  
+  @keyframes bgextendAnimeBase{
+	from {
+	  opacity:0;
+	}
+  
+	to {
+	  opacity:1;  
+  }
+  }
+  
+  /*中の要素*/
+  .bgappear{
+	animation-name:bgextendAnimeSecond;
+	animation-duration:1s;
+	animation-delay: 0.6s;
+	animation-fill-mode:forwards;
+	opacity: 0;
+  }
+  
+  @keyframes bgextendAnimeSecond{
+	0% {
+	opacity: 0;
+	}
+	100% {
+	opacity: 1;
+  }
+  }
+  
+  /*--------- 左から --------*/
+  .bgLRextend::before{
+	animation-name:bgLRextendAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+	  content: "";
+	  position: absolute;
+	  width: 100%;
+	  height: 100%;
+	  background-color: #4169E1;/*伸びる背景色の設定*/
+  }
+  @keyframes bgLRextendAnime{
+	0% {
+	  transform-origin:left;
+	  transform:scaleX(0);
+	}
+	50% {
+	  transform-origin:left;
+	  transform:scaleX(1);
+	}
+
+  }
+
+/* ログアウトページ */
+.logout-contents {
+	width: 50%;
+	margin:15vh auto;
+	padding: 5%;
+	background-color:white;
+	border-radius: 5px;
+	
+}
+
+/* トップページ */
+.persons {
+
+}
+.person-contents {
+	    display: flex;
+		background: linear-gradient(180deg, rgba(60, 37, 167, 0) 0%, rgb(56, 33, 156) 80%, #246ec2 20%, #c4d7d1 100%);
+		border-radius: 5px;
+		margin: auto 5%;
+
+	}
+.person-content {
+	    /*デフォルトで透明度0に指定*/
+		opacity: 0;
+		transform: translateY(50px);
+		transition: 2s;
+		width: 25%;
+		margin: auto 2%;
+}
+/*スクロールした時に追加されるクラス*/
+.fadein{
+    opacity: 1;
+	transform: translateY(0);
+
+}
+
+/* フォーム */
+form {
+	background-color:white;
+}
+.login-content {
+	padding-bottom: 5%;
+}  
+.login-form{
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	width: 50%;
+	margin:15vh auto;
+	padding: 5%;
+	display: flow-root;
+}
+.form-content {
+	padding-bottom:3%;
+}
+.form-content-head {
+	border-bottom: 1px solid black;
+}
+input {
+	width: 50%;
+}
+#submit {
+	text-align: center;
+} 
+#submit-btn {
+	display: inline-block;
+	width: 30%;
+	padding:10px 0px;
+	background-color: #D71345;	
+	border: none;
+	border-radius: 5px;
+	color: white;
+	margin: 10px auto;
+	cursor: pointer;
+}  
+
+#return-btn {
+	display: inline-block;
+	width: 30%;
+	padding:10px 0px;
+	background-color:white;
+	border: 1.5px solid darkgreen;
+	border-radius: 5px;
+	color: darkgreen;
+	margin: 10px auto;
+	cursor: pointer;
+} 
+
+/* 遷移ボタン */
+.url {
+	margin: 5%;
+}
+/*.url-path {
+	text-align: center;	
+	color: white;
+	height: 3em;
+} */ 
+.url-path a {
+	color:  white;
+}
+
+/*丸がボタンに変形する*/
+
+.url-path{
+    /*丸の基点とするためrelativeを指定*/
+    position: relative;
+    /*ボタンの形状*/  
+    display: block;
+    line-height: 50px;
+    color: white;
+    text-decoration: none;
+    outline: none;
+	text-align: center;
+}
+
+/* 丸が動く */
+.url-path::before{
+    content:'';
+    /*絶対配置で丸の位置を決める*/
+    position:absolute;
+    z-index: -1;
+    /*丸の形状*/
+    width:50px;
+    height:50px;
+    background:rgba(82, 56, 195, 0.516);
+    border-radius:25px;
+    /*アニメーションの指定*/
+    transition:.3s ease-out;
+}
+
+
+/*hoverした際の形状*/
+.url-path:hover::before{
+  width:212px;
+}
+
+/* 矢印の形状 */
+.btntransform::after{
+  position: absolute;
+    content: '';
+    top: 1.3em;
+    right: -15px;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #000;
+    border-right: 1px solid #000;
+    transform: rotate(45deg);
+}
+
+.login-form {
+	background-color: white;
 }
