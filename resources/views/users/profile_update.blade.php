@@ -7,26 +7,27 @@
 <!--ここからtoppageの範囲 -->
 @section('main')
   <body>
-    <div class=page>
-      <div class="bgextend bgLRextend"><h3 class="bgappear">ログアウト</h3></div>
+  <div class=page>
+      <div class="bgextend bgLRextend"><h3 class="bgappear">更新完了</h3></div>
     </div>
     <main>
-      @csrf
 
       <div class="wrapper">
         <div class="contents">
 
-          <div class=logout-contents>
+          <div class="login-form">
             <div class="form-content">
-              <h4>ログアウトしました</h4>
-            </div>
+              <h4>プロフィール更新しました</h4>
+            </div>          
           </div>
 
-          <div class=url>
-              <p class=url-path><a href="{{url('/login')}}">ログインページに戻る</a></p>
-            </div>        
         </div>
       </div>
+
+      <div class=url>
+        <p class=url-path><a href="{{url('/users/profile')}}">マイページへ戻る</a></p>   
+      </div>
+
 
     </main>
   </body>

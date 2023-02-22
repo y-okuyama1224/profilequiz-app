@@ -28,7 +28,13 @@
                     <p>メールアドレス</p>
                   </div>
                   <div class=form-content-body>
-                    <input type="text" name="email" placeholder=test@email.jp required>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                   </div>
                 </div>
 
@@ -37,26 +43,41 @@
                       <p>パスワード</p>
                     </div>
                     <div class=form-content-body>
-                      <input type="password" name="password" required>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                     </div>
+                  </div>
+
+                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
                   </div>
                 
-                  <div class=form-content>
-                    <div class=form-content-head>
-                      <p>グループ名</p>
-                    </div>
-                    <div class=form-content-body>
-                      <input type="text" name="group_name" required>
-                    </div>
-                  </div>
+
               </div>
               <p class=form-content id=submit>
-                <button type="submit" name="button" id="submit-btn" onclick="validation()">ログイン</button>
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('ログイン') }}
+                                </button>
+
+         
               </p>            
             </form>
 
               <div class=url>
-                <p class=url-path><a href="{{url('/users/forget_password')}}">パスワードをお忘れですか？</a></p>
+              @if (Route::has('password.request'))
+                <a class=url-path href="{{ route('password.request') }}">
+                    {{ __('パスワードをお忘れですか?') }}
+                </a>
+              @endif     
                 <p class=url-path>新規登録の方は<a href="{{url('/users/signup')}}">こちら</a></p>
               </div>
 

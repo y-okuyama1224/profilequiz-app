@@ -15,7 +15,7 @@
       <div class="wrapper">
         <div class="contents">
         @csrf
-        <form class=login-form action="{{url('/update')}}">
+        <form class=login-form action="{{url('clients/client_profile_update')}}">
             <div class="form-contents">
               <h4>クライアント情報編集</h4>
               <div class="form-content">
